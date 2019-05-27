@@ -28,6 +28,10 @@ class MyChunkedUploadCompleteView(ChunkedUploadCompleteView):
         pass
 
     def on_completion(self, uploaded_file, request):
+        with open('media/test.png', 'wb') as f:
+
+            f.write(uploaded_file.read())
+
         # Do something with the uploaded file. E.g.:
         # * Store the uploaded file on another model:
         # SomeModel.objects.create(user=request.user, file=uploaded_file)
